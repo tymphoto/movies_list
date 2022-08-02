@@ -3,7 +3,7 @@ import LoadingReducer from './loadingReducer';
 import MoviesReducer from './moviesReducer';
 
 const rootReducer = combineReducers({
-  movies: MoviesReducer,
+  moviesList: MoviesReducer,
   loading: LoadingReducer,
 });
 
