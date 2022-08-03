@@ -1,6 +1,6 @@
 import { GET_MOVIES } from '../constants/constants';
 
-const initialState = {};
+const initialState = [];
 
 const MoviesReducer = (state = initialState, action) => {
   const { type, payload } = action;

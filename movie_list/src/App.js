@@ -1,10 +1,20 @@
+import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import NavbarBootstrap from './components/NavbarBootsrap/NavbarBoostrap';
 import './styles/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MoviesList from './components/MoviesList/MoviesList';
+import { getMoviesThunk } from './redux/actions/moviesAction';
 
 function App() {
+  const dispatch = useDispatch();
+  const { moviesList, favourite } = useSelector((state) => state);
+
+  useEffect(() => {
+    dispatch(getMoviesThunk());
+  }, []);
+
   return (
     <div className="App">
       <NavbarBootstrap />
@@ -14,16 +24,17 @@ function App() {
             path="/"
             element={(
               <div className="moviesList">
-                <MoviesList />
+                <MoviesList list={moviesList} type="moviesList" />
               </div>
         )}
           />
-          {/* <Route
+          <Route
             path="/favourite"
             element={(
-              <Favourite />
+              <MoviesList list={favourite} type="favourite" />
         )}
-          /> */}
+          />
+
           <Route
             path="*"
             element={(
