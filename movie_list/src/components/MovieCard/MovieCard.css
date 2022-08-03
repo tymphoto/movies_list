@@ -1,9 +1,22 @@
 .movieCard {
   display: flex;
+  justify-content: space-between;
   margin: 30px auto;
-  max-height: 700px;
+  min-height: 600px;
 }
 
 .movie_card_button {
   margin: 10px;
+}
+
+.comment_box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.movie_card_button_delete {
+  height: 30px;
+  width: 32px;
 }

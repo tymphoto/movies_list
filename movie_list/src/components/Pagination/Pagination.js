@@ -13,7 +13,7 @@ function Pagination({ moviesPerPage, totalMovies, paginate }) {
     <div>
       <ButtonGroup className="me-2" aria-label="First group">
         {pageNumbers.map((number) => (
-          <Button variant="secondary" onClick={() => paginate(number)}>{number}</Button>
+          <Button variant="secondary" onClick={() => paginate(number)} key={number}>{number}</Button>
         ))}
       </ButtonGroup>
     </div>

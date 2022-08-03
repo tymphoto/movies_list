@@ -1,5 +1,7 @@
 import axios from 'axios';
-import { GET_MOVIES, START, STOP } from '../constants/constants';
+import {
+  GET_MOVIES, START, STOP, ADD_COMMENT, DELETE_COMMENT,
+} from '../constants/constants';
 
 export const getMovies = (data) => ({ type: GET_MOVIES, payload: data });
 
@@ -13,3 +15,6 @@ export const getMoviesThunk = () => async (dispatch) => {
     console.log(e);
   }
 };
+
+export const addComment = (id, data) => ({ type: ADD_COMMENT, payload: { id, data } });
+export const deleteComment = (id, data) => ({ type: DELETE_COMMENT, payload: { id, data } });
