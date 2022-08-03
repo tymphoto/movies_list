@@ -10,7 +10,7 @@ import { getMoviesThunk } from './redux/actions/moviesAction';
 function App() {
   const dispatch = useDispatch();
   const { moviesList, favourite } = useSelector((state) => state);
-
+  console.log(moviesList);
   useEffect(() => {
     dispatch(getMoviesThunk());
   }, []);
