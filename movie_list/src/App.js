@@ -28,6 +28,7 @@ function App() {
               </div>
         )}
           />
+
           <Route
             path="/favourite"
             element={(

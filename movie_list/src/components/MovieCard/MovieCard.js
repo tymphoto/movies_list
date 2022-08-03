@@ -14,9 +14,6 @@ function MovieCard({ movie, id, type }) {
         <Card.Img variant="top" src={movie.medium_cover_image} alt="movies_cover" />
         <Card.Body>
           <Card.Title>{movie.title}</Card.Title>
-          <Card.Text>
-            {movie.raiting}
-          </Card.Text>
           {type === 'moviesList'
             ? (
               <Button

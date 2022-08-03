@@ -19,6 +19,7 @@ function MoviesList({ list, type }) {
           />
         )))}
     </div>
+
   );
 }
 
