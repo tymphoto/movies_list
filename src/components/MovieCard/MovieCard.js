@@ -10,12 +10,13 @@ import { addComment, deleteComment } from '../../redux/actions/moviesAction';
 function MovieCard({ movie, id, type }) {
   const dispatch = useDispatch();
   const [currentComment, setCurrentComment] = useState('');
-  const [form, setForm] = useState({});
+  const [disabled, setDisabled] = useState(true);
 
   const addNewComment = (newComment, e) => {
     e.preventDefault();
     dispatch(addComment(id, newComment));
     setCurrentComment('');
+    setDisabled(true);
   };
 
   return (
@@ -48,11 +49,12 @@ function MovieCard({ movie, id, type }) {
                     type="comment"
                     placeholder="Комментарий"
                     value={currentComment}
-                    onChange={(e) => setCurrentComment(e.target.value)}
+                    onChange={(e) => { setCurrentComment(e.target.value); setDisabled(false); }}
                   />
                   <Button
                     variant="outline-primary"
                     className="movie_card_button"
+                    disabled={disabled}
                     onClick={(e) => addNewComment(currentComment, e)}
                   >
                     Добавить комментарий
