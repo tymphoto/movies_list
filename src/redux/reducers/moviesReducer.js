@@ -11,8 +11,8 @@ const MoviesReducer = (state = initialState, action) => {
     case ADD_COMMENT:
       return state.map((el) => {
         if (el.id === payload.id) {
-          if (el.comment) el.comment.push(payload.data);
-          if (!el.comment) return { ...el, comment: [payload.data] };
+          if (el.comment && payload.data !== '') el.comment.push(payload.data);
+          if (!el.comment && payload.data !== '') return { ...el, comment: [payload.data] };
         }
         return el;
       });
